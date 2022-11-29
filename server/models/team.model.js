@@ -4,25 +4,24 @@ const TeamSchema = new mongoose.Schema(
   {
     teamCode: {
       type: String,
-      required: [true, "Add a pet name"],
-      minlength: [2, "Name must be at least 3 characters"],
     },
     name: {
       type: String,
-      required: [true, "Add a pet name"],
-      minlength: [3, "Name must be at least 3 characters"],
     },
-    stage: {
+    flag: {
       type: String,
     },
-    goalsTemp: {
+    stageScore: {
+      type: Array,
+    },
+    goalsDifference: {
       type: Number,
     },
-    goalsTotal: {
+    stage: {
       type: Number,
     },
-    local: {
-      type: Boolean,
+    cards: {
+      type: Array,
     },
   },
   { timestamps: true }
