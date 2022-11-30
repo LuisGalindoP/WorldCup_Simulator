@@ -24,40 +24,43 @@ const Groups = (props) => {
       <div className="w-96 bg-white rounded drop-shadow-md">
         <table className="table-fixed border-separate border-spacing-2 ">
           <thead className="text-slate-500">
-            <th className="font-normal w-36 text-left">GROUP {group}</th>
-            <th className={thStyling}>P</th>
-            <th className={thStyling}>W</th>
-            <th className={thStyling}>D</th>
-            <th className={thStyling}>L</th>
-            <th className={thStyling}>GD</th>
-            <th className={thStyling}>PTS</th>
+            <tr>
+              <th className="font-normal w-36 text-left">GROUP {group}</th>
+              <th className={thStyling}>P</th>
+              <th className={thStyling}>W</th>
+              <th className={thStyling}>D</th>
+              <th className={thStyling}>L</th>
+              <th className={thStyling}>GD</th>
+              <th className={thStyling}>PTS</th>
+            </tr>
           </thead>
           <tbody>
-            {allTeams.length &&
-              allTeams.map((team, index) => {
-                if (team.teamCode[0] === group) {
-                  return (
-                    <tr key={index}>
-                      <td className="flex gap-2 text-center">
-                        <img
-                          src={team.flag}
-                          alt=""
-                          width="30"
-                          height="15"
-                          className="drop-shadow-md "
-                        />
-                        <h4>{team.name}</h4>
-                      </td>
-                      <td className={tdStyling}>0</td>
-                      <td className={tdStyling}>0</td>
-                      <td className={tdStyling}>0</td>
-                      <td className={tdStyling}>0</td>
-                      <td className={tdStyling}>0</td>
-                      <td className={tdStyling}>0</td>
-                    </tr>
-                  );
-                }
-              })}
+            {allTeams.length
+              ? allTeams.map((team, index) => {
+                  if (team.teamCode[0] === group) {
+                    return (
+                      <tr key={index}>
+                        <td className="flex gap-2 text-center">
+                          <img
+                            src={team.flag}
+                            alt=""
+                            width="30"
+                            height="15"
+                            className="drop-shadow-md "
+                          />
+                          <h4>{team.name}</h4>
+                        </td>
+                        <td className={tdStyling}>{team.stage}</td>
+                        <td className={tdStyling}>{team.winLoseTie[0]}</td>
+                        <td className={tdStyling}>{team.winLoseTie[1]}</td>
+                        <td className={tdStyling}>{team.winLoseTie[2]}</td>
+                        <td className={tdStyling}>{team.goalsDifference}</td>
+                        <td className={tdStyling}>{team.points}</td>
+                      </tr>
+                    );
+                  }
+                })
+              : null}
           </tbody>
         </table>
       </div>
@@ -65,8 +68,8 @@ const Groups = (props) => {
   };
 
   return (
-    <div className="m-4">
-      <h2 className="text-center font-medium m-4 text-white text-xl">GROUPS</h2>
+    <div className="mb-4">
+      <h2 className="text-center font-medium p-4 text-white text-xl">GROUPS</h2>
       <div className="flex flex-wrap gap-4 justify-center">
         {/* GROUPS ALL CALLED HERE */}
         {createGroup("A")}

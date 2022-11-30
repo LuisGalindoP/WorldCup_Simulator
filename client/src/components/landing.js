@@ -9,7 +9,7 @@ const Landing = (props) => {
   const { allTeams, setAllTeams } = props;
 
   return (
-    <div>
+    <div className="bg-rose-800">
       {/* <h2>Landing</h2> */}
 
       {!allTeams[1] && (
@@ -21,10 +21,12 @@ const Landing = (props) => {
         </button>
       )}
       <Groups allTeams={allTeams} setAllTeams={setAllTeams} />
+      <Matches allTeams={allTeams} setAllTeams={setAllTeams} />
     </div>
   );
 };
 
+// THIS IS THE FUNCTION TO CREATE ALL THE TEAMS AND BASE STATS IN THE DB
 const addAllTeams = (event) => {
   event.preventDefault();
 
@@ -36,6 +38,7 @@ const addAllTeams = (event) => {
         flag: Teams[i].flag,
         points: 0,
         stageScore: [0, 0, 0, 0, 0, 0, 0, 0],
+        winLoseTie: [0, 0, 0],
         goalsDifference: 0,
         stage: 0,
         cards: [0, 0],

@@ -11,7 +11,13 @@ const TeamSchema = new mongoose.Schema(
     flag: {
       type: String,
     },
+    points: {
+      type: Number,
+    },
     stageScore: {
+      type: Array,
+    },
+    winLoseTie: {
       type: Array,
     },
     goalsDifference: {

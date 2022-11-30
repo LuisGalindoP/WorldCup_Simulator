@@ -7,7 +7,7 @@ function App() {
   const [allTeams, setAllTeams] = useState([]);
 
   return (
-    <div className="bg-rose-800 p-8">
+    <div>
       <Router>
         <Landing path={"/"} allTeams={allTeams} setAllTeams={setAllTeams} />
       </Router>
